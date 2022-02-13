@@ -2,64 +2,7 @@
 
 defined("CATALOG") or die("Access denied");
 
-/**
-* Распечатка массива
-**/
-function print_arr($array){
-	echo "<pre>" . print_r($array, true) . "</pre>";
-}
 
-/**
-* Получение массива категорий
-**/
-function get_cat(){
-	global $connection;
-	$query = "SELECT * FROM categories";
-	$res = mysqli_query($connection, $query);
-
-	$arr_cat = array();
-	while($row = mysqli_fetch_assoc($res)){
-		$arr_cat[$row['id']] = $row;
-	}
-	return $arr_cat;
-}
-
-/**
-* Построение дерева
-**/
-function map_tree($dataset) {
-	$tree = array();
-
-	foreach ($dataset as $id=>&$node) {    
-		if (!$node['parent']){
-			$tree[$id] = &$node;
-		}else{ 
-            $dataset[$node['parent']]['childs'][$id] = &$node;
-		}
-	}
-
-	return $tree;
-}
-
-/**
-* Дерево в строку HTML
-**/
-function categories_to_string($data){
-	$string = '';
-	foreach($data as $item){
-		$string .= categories_to_template($item);
-	}
-	return $string;
-}
-
-/**
-* Шаблон вывода категорий
-**/
-function categories_to_template($category){
-	ob_start();
-	include 'views/category_template.php';
-	return ob_get_clean();
-}
 
 /**
 * Хлебные крошки
@@ -78,65 +21,9 @@ function breadcrumbs($array, $id){
 	return array_reverse($breadcrumbs_array, true);
 }
 
-/**
-* Получение ID дочерних категорий
-**/
-function cats_id($array, $id){
-	$data = '';
-	if(!$id) return false;
 
-	foreach($array as $item){
-		if($item['parent'] == $id){
-			$data .= $item['id'] . ",";
-			$data .= cats_id($array, $item['id']);
-		}
-	}
-	return $data;
-}
 
-/**
-* Получение товаров
-**/
-function get_products($ids, $start_pos, $perpage){
-	global $connection;
-	if($ids){
-		$query = "SELECT * FROM products WHERE parent IN($ids) ORDER BY title LIMIT $start_pos, $perpage";
-	}else{
-		$query = "SELECT * FROM products ORDER BY title LIMIT $start_pos, $perpage";
-	}
-	$res = mysqli_query($connection, $query);
-	$products = array();
-	while($row = mysqli_fetch_assoc($res)){
-		$products[] = $row;
-	}
-	return $products;
-}
 
-/**
-* Получение отдельного товара
-**/
-function get_one_product($product_alias){
-	global $connection;
-	$product_alias = mysqli_real_escape_string($connection, $product_alias);
-	$query = "SELECT * FROM products WHERE alias = '$product_alias'";
-	$res = mysqli_query($connection, $query);
-	return mysqli_fetch_assoc($res);
-}
-
-/**
-* Кол-во товаров
-**/
-function count_goods($ids){
-	global $connection;
-	if( !$ids ){
-		$query = "SELECT COUNT(*) FROM products";
-	}else{
-		$query = "SELECT COUNT(*) FROM products WHERE parent IN($ids)";
-	}
-	$res = mysqli_query($connection, $query);
-	$count_goods = mysqli_fetch_row($res);
-	return $count_goods[0];
-}
 
 /**
 * Постраничная навигация

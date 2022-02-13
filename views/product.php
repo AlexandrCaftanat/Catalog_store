@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<title>Каталог</title>
 	<link rel="stylesheet" href="<?=PATH?>views/css/style.css">
+	<link type="image/x-icon" href="/views/img/favicon.ico" rel="shortcut icon">
 </head>
 <body>
 	<a href="/">Главная</a>
