@@ -1,7 +1,14 @@
 <?php 
 include 'main_controller.php';
 include "models/{$view}_model.php";
-include "views/{$view}.php";
+
+// Инициализируем перемменую $id
+if(!isset($id)) $id = null;
+
+
+// Подключение хлебных крошек
+include 'libs/breadcrumbs.php';
+
 
 // ID дочерних категорий
 
@@ -42,21 +49,6 @@ $start_pos = ($page - 1) * $perpage;
 $pagination = pagination($page, $count_pages);
 
 /*=========Пагинация==========*/
-
-
-/**
-* Кол-во товаров
-**/
-function count_goods($ids){
-	global $connection;
-	if( !$ids ){
-		$query = "SELECT COUNT(*) FROM products";
-	}else{
-		$query = "SELECT COUNT(*) FROM products WHERE parent IN($ids)";
-	}
-	$res = mysqli_query($connection, $query);
-	$count_goods = mysqli_fetch_row($res);
-	return $count_goods[0];
-}
-
 $products = get_products($ids, $start_pos, $perpage);
+
+include "views/{$view}.php";
