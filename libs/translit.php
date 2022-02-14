@@ -1,5 +1,7 @@
 <?php
 
+defined("CATALOG") or die("Access denied");
+
 include 'catalog.php';
 include 'config.php';
 

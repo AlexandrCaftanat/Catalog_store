@@ -1,5 +1,7 @@
 <?php
 
+defined("CATALOG") or die("Access denied");
+
 /**
 * Распечатка массива
 **/

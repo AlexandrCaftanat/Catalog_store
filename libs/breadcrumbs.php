@@ -1,4 +1,7 @@
 <?php 
+
+defined("CATALOG") or die("Access denied");
+
 // хлебные крошки
 // return true (array not empty) || return false
 $breadcrumbs_array = breadcrumbs($categories, $id);

@@ -1,5 +1,5 @@
 <?php
-
+defined("CATALOG") or die("Access denied");
 
 /**
 * Получение отдельного товара

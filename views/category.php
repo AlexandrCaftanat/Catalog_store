@@ -11,14 +11,15 @@
 	<link type="image/x-icon" href="/views/img/favicon.ico" rel="shortcut icon">
 </head>
 <body>
-	<a href="/">Главная</a>
+	
+<a href="/">Главная</a>
 	<div class="wrapper">
-		<div class="sidebar">
-			<ul class="category">
-				<?php echo $categories_menu ?>
-			</ul>
-		</div>
-		<div class="content">
+		
+	<div class="sidebar">
+		<?php include "sidebar.php";?>
+	</div>
+		
+	<div class="content">
 			<p><?=$breadcrumbs;?></p>
 			<br>
 			<hr>

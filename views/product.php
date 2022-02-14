@@ -1,6 +1,4 @@
-<?php
-	defined("CATALOG") or die("Access denied");
-?>
+<?php defined("CATALOG") or die("Access denied");?>
 
 <!doctype html>
 <html lang="en">
@@ -14,9 +12,7 @@
 	<a href="/">Главная</a>
 	<div class="wrapper">
 		<div class="sidebar">
-			<ul class="category">
-				<?php echo $categories_menu ?>
-			</ul>
+			<?php include "sidebar.php";?>
 		</div>
 		<div class="content">
 			<p><?=$breadcrumbs;?></p>

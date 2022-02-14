@@ -1,4 +1,7 @@
 <?php
+
+defined("CATALOG") or die("Access denied");
+
 /**
 * Получение ID дочерних категорий
 **/

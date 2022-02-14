@@ -1,4 +1,6 @@
 <?php
+
+defined("CATALOG") or die("Access denied");
   header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
 ?>
 <!DOCTYPE html>
