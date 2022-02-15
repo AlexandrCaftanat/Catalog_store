@@ -6,12 +6,24 @@ defined("CATALOG") or die("Access denied");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 NOT Found</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/views/css/404.css">
+  <title>NotFound 404</title>
 </head>
 <body>
-    <h3>404 Not found</h3>
+    <section class="notFound">
+        <div class="img">
+        <img src="https://assets.codepen.io/5647096/backToTheHomepage.png" alt="Back to the Homepage"/>
+        <img src="https://assets.codepen.io/5647096/Delorean.png" alt="El Delorean, El Doc y Marti McFly"/>
+        </div>
+        <div class="text">
+        <h1>404</h1>
+        <h2>PAGE NOT FOUND</h2>
+        <h3>BACK TO HOME?</h3>
+        <a href="<?=PATH?>" class="yes">YES</a>
+        </div>
+    </section>
 </body>
 </html>

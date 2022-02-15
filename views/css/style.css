@@ -3,11 +3,17 @@ body{
     background-color:aliceblue;
     font-family: 'ROBOTO', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
+	margin-top: 30px;
 }
 a{
-    text-decoration: none;
+    
     color: darkblue;
     font-weight: 600;
+}
+
+a:hover{
+	text-decoration:none;
+	color: black;	
 }
 
 .wrapper{
@@ -64,4 +70,13 @@ ul{
 	background: #428bca;
 	color: #fff;
 	border-color: #428bca;
+}
+
+.menu{
+	margin: 0 0 20px 0;
+}
+
+.menu li{
+	display: inline;
+	margin: 0 20px 0 0;
 }

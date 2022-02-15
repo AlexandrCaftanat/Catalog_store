@@ -1,18 +1,15 @@
-<?php
-	defined("CATALOG") or die("Access denied");
-?>
+<?php defined("CATALOG") or die("Access denied");?>
 
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Каталог</title>
+	<title><?=strip_tags($breadcrumbs)?></title>
 	<link rel="stylesheet" href="<?=PATH?>views/css/style.css">
 	<link type="image/x-icon" href="/views/img/favicon.ico" rel="shortcut icon">
 </head>
 <body>
 	
-<a href="/">Главная</a>
 	<div class="wrapper">
 		
 	<div class="sidebar">
@@ -20,7 +17,10 @@
 	</div>
 		
 	<div class="content">
-			<p><?=$breadcrumbs;?></p>
+
+	<?php include 'menu.php'; ?>
+
+		<p><?=$breadcrumbs;?></p>
 			<br>
 			<hr>
 

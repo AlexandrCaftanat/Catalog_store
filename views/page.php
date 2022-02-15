@@ -18,11 +18,9 @@
 		<p><?=$breadcrumbs;?></p>
 			<br>
 			<hr>
-<?php if($get_one_product): ?>
-	<?php print_arr($get_one_product); ?>
-<?php else: ?>
-	Такого товара нет
-<?php endif; ?>
+               <div class="page_content">
+				   <?=$page['text']?>
+			   </div>
 		</div>
 	</div>
 	<script src="<?=PATH?>views/js/jquery-1.9.0.min.js"></script>

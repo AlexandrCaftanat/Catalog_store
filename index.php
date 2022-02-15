@@ -10,6 +10,7 @@ $routes = [
 	['url' => '#^$|^\?#', 'view' => 'category'],
 	['url'=> '#^product/(?P<product_alias>[a-z0-9-]+)#i', 'view' => 'product'],
 	['url' => '#^category/(?P<id>\d+)#i', 'view' => 'category'],
+	['url' => '#^page/(?P<page_alias>[a-z0-9-]+)#i', 'view' => 'page'],
 ];
 
 //Обработка url для функции роутинга
@@ -28,7 +29,8 @@ foreach ($routes as $route) {
 
 // Проверка на не валидный url
 
-if (empty($match)){ include 'views/404.php';
+if (empty($match)){
+	include 'views/404.php';
 	exit;
 }
 
@@ -38,7 +40,7 @@ extract($match);
 // $product_alias = alias продукта
 // $view = Вид для подключения
 
-// Подключения вида
+// Подключения контроллера
 include "controllers/{$view}_controller.php";
 
 
